@@ -25,10 +25,10 @@
         <button class="circle-button" onclick="talkToRobot()">
             <img src="icons/robot.png" alt="Robot">
         </button>
-        <button class="circle-button" onclick="window.open('https://www.grupoavanze.com', '_blank')">
+        <button class="circle-button" onclick="showConfirmation('confirm-web')">
             <img src="icons/web.png" alt="Website">
         </button>
-        <button class="circle-button" onclick="window.open('https://linkedin.com/company/grupo-avanze', '_blank')">
+        <button class="circle-button" onclick="showConfirmation('confirm-linkedin')">
             <img src="icons/linkedin.png" alt="LinkedIn">
         </button>
         <button class="circle-button" onclick="toggleSubtitles()">
@@ -41,6 +41,37 @@
         <p>
             Bienvenidos a Grupo Avanze. Nos dedicamos a la innovación y el desarrollo. Conozca nuestras soluciones tecnológicas. Escanee este código QR para más información. ¡Gracias por visitarnos en este evento!
         </p>
+    </div>
+    <!-- Confirmación para Web -->
+    <div id="confirm-web" class="confirmation-box hidden">
+        <p>¿Desea dirigirse a la página web de Grupo Avanze?</p>
+        <button class="confirm-button" onclick="redirectToWeb()">Sí</button>
+        <button class="cancel-button" onclick="hideConfirmation('confirm-web')">No</button>
+    </div>
+    <!-- Confirmación para LinkedIn -->
+    <div id="confirm-linkedin" class="confirmation-box hidden">
+        <p>¿Desea dirigirse a la página de LinkedIn de Grupo Avanze?</p>
+        <button class="confirm-button" onclick="redirectToLinkedIn()">Sí</button>
+        <button class="cancel-button" onclick="hideConfirmation('confirm-linkedin')">No</button>
+    </div>
+    
+    <!-- Instrucciones iniciales -->
+    <div id="intro-overlay" class="intro-overlay">
+        <div id="intro-step-1" class="intro-step">
+            <h1>¡Bienvenido a Grupo Avanze! 🎉</h1>
+            <p>
+                Aquí experimentarás una demostración interactiva utilizando realidad aumentada. Sigue los pasos a continuación para empezar.
+            </p>
+            <button onclick="nextIntroStep()">Siguiente</button>
+        </div>
+        <div id="intro-step-2" class="intro-step hidden">
+            <h1>Encuentra el marcador</h1>
+            <p>
+                Coloca tu cámara frente al marcador impreso que recibiste y espera a que se active la experiencia interactiva.
+            </p>
+            <img src="images/marcador-referencia.png" alt="Ejemplo de marcador" class="marker-image">
+            <button onclick="closeIntro()">Comenzar</button>
+        </div>
     </div>
 </body>
 </html>
