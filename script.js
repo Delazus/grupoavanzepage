@@ -5,7 +5,15 @@ function talkToRobot() {
     // Aquí puedes integrar la lógica para iniciar la conversación con el robot
 }
 
+let subtitlesVisible = false; // Estado inicial
+
 function toggleSubtitles() {
-    const subtitlesEnabled = document.body.classList.toggle("subtitles-enabled");
-    alert(subtitlesEnabled ? "Subtítulos activados" : "Subtítulos desactivados");
+    const subtitlesBox = document.getElementById("subtitles-box");
+    subtitlesVisible = !subtitlesVisible;
+
+    if (subtitlesVisible) {
+        subtitlesBox.style.display = "block"; // Muestra el cuadro
+    } else {
+        subtitlesBox.style.display = "none"; // Oculta el cuadro
+    }
 }
