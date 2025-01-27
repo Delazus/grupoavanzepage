@@ -54,7 +54,7 @@ function hideConfirmation(id) {
  * Redirigir al usuario a la página web de Grupo Avanze.
  */
 function redirectToWeb() {
-    window.open('https://www.grupoavanze.com', '_blank');
+    window.open('https://grupoavanze.cl', '_blank');
     hideConfirmation('confirm-web');
 }
 
@@ -62,7 +62,7 @@ function redirectToWeb() {
  * Redirigir al usuario a la página de LinkedIn de Grupo Avanze.
  */
 function redirectToLinkedIn() {
-    window.open('https://linkedin.com/company/grupo-avanze', '_blank');
+    window.open('https://linkedin.com/company/grupo-avanze-cl', '_blank');
     hideConfirmation('confirm-linkedin');
 }
 
