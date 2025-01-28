@@ -31,7 +31,7 @@ p {
 }
 
 .header {
-    background-color: var(--color-primary);
+    background-color: var(--color-complementary-calm);
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -110,30 +110,33 @@ p {
     transform: translateX(-50%);
     width: 90%;
     max-width: 400px;
-    border-top-left-radius: 6px; /* Bordes redondeados superiores */
-    border-top-right-radius: 6px;
+    border-top-left-radius: 4px; /* Bordes redondeados superiores */
+    border-top-right-radius: 4px;
     overflow: hidden; /* Para mantener los bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
     z-index: 11; /* Más alto que otros elementos */
-    /* display: none; /* Oculto por defecto */
+    display: none; /* Oculto por defecto */
+    background-color: rgba(43, 46, 54, 0.5); /* Fondo semitransparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
 }
 
 /* Pseudo-elemento para la muesca */
 .subtitles-box::after {
     content: '';
     position: absolute;
-    bottom: -1px; /* Alineado con el borde */
-    right: 3px; /* Alineado con el borde */
+    bottom: -2px; /* Alineado con el borde */
+    right: -2px; /* Alineado con el borde */
     width: 24px; /* Tamaño de la muesca */
     height: 24px; /* Tamaño de la muesca */
-    background-color: var(--color-primary); /* Mismo color del borde */
+    background-color: var(--color-complementary-calm); /* Mismo color del borde */
     clip-path: polygon(100% 0, 100% 100%, 0 100%); /* Triángulo para la muesca */
 }
 
-/* Encabezado del subtítulo */
+/* Encabezado */
 .subtitles-box-header {
-    background-color: var(--color-primary); /* Color primario */
-    padding: 8px 10px;
+    background-color: var(--color-complementary-calm); /* Color primario */
+    padding: 8px 16px;
     font-family: 'Archivo', sans-serif;
     font-weight: bold;
     font-size: 22px;
@@ -141,23 +144,63 @@ p {
     text-align: left; /* Alineado a la izquierda */
     border-top-left-radius: 4px; /* Bordes redondeados superiores */
     border-top-right-radius: 4px;
-    border:2px solid var(--color-primary); /* Borde de color primario */
+    border:2px solid var(--color-complementary-calm); /* Borde de color primario */
+}
+
+/* Body */
+.subtitles-box-bodyall {
+    border-bottom: 2px solid var(--color-complementary-calm);
+    border-left: 2px solid var(--color-complementary-calm);
+    border-right: 2px solid var(--color-complementary-calm);
+    padding: 16px;
+}
+
+.subtitles-box-title {
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-complementary-calm);
+    text-align: left;
+    border-bottom: 1px solid var(--color-complementary-calm);
+    padding-bottom: 8px;
 }
 
 /* Cuerpo del subtítulo */
 .subtitles-box-body {
-    background-color: rgba(43, 46, 54, 0.2); /* Fondo semitransparente */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
     color: var(--color-neutral-light); /* Texto blanco o claro */
     font-family: 'Source Sans 3', sans-serif;
     font-size: 14px;
     line-height: 1.5;
-    padding: 16px;
     text-align: left;
-    border-bottom: 1px solid var(--color-primary);
-    border-left: 1px solid var(--color-primary);
-    border-right: 4px solid var(--color-primary);
+    min-height: 84px; /* Altura mínima para 4 líneas de texto */
+    display: flex;
+    align-items:flex-start;
+    padding-top: 16px;
+}
+
+.dialog-buttons{
+    display: block !important;
+}
+
+/* Botones de diálogo del robot */
+.subtitles-box-body button {
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subtitles-box-body button:hover {
+    background-color: var(--color-complementary-calm);
 }
 
 .hidden {
@@ -166,20 +209,14 @@ p {
 
 /* Cuadro de confirmación flotante */
 .confirmation-box {
-    position: fixed;
-    bottom: 100px; /* Posición encima de los botones */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
+    color: var(--color-neutral-light); /* Texto blanco o claro */
+    border: 2px solid var(--color-complementary-calm);
     max-width: 300px;
-    background-color: var(--color-neutral-light);
-    color: var(--color-secondary);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 16px;
     text-align: center;
     font-size: 14px;
     line-height: 1.5;
+    border-radius: initial !important;
     z-index: 12; /* Más alto que los botones */
     display: none; /* Inicialmente oculto */
 }
@@ -187,10 +224,12 @@ p {
 /* Botones dentro del cuadro de confirmación */
 .confirm-button,
 .cancel-button {
-    margin: 10px 5px;
-    padding: 10px 15px;
+    width: calc(100% - 200px); /* Ancho ajustado con márgenes */
+    height: 40px;
+    margin: 16px 8px;
+    padding: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s;
@@ -301,14 +340,15 @@ p {
     transform: translateX(-50%);
     width: calc(100% - 24px); /* Ancho ajustado con márgenes */
     max-width: 400px;
+    height: 40px;
     padding: 12px 0;
     background-color: var(--color-secondary);
     color: var(--color-neutral-light);
     font-family: 'Archivo', sans-serif;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }

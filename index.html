@@ -39,23 +39,33 @@
         </button>
     </div>
     
-    <!-- Contenedor de subtítulos -->
+        <!-- Subtítulos flotantes -->
     <div id="subtitles-box" class="subtitles-box">
         <div class="subtitles-box-header">Geeky</div>
-        <div class="subtitles-box-body">
-            <p>
-                Bienvenidos a Grupo Avanze. Nos dedicamos a la innovación y el desarrollo. Conozca nuestras soluciones tecnológicas. Escanee este código QR para más información. ¡Gracias por visitarnos en este evento!
-            </p>
+        <div class="subtitles-box-bodyall">
+            <div class="subtitles-box-title"></div> <!-- Contenedor para el título del subtítulo -->
+            <div class="subtitles-box-body"></div> <!-- Contenedor para el texto del subtítulo -->
         </div>
     </div>
+
+    <!-- Cuadro de diálogo del robot -->
+    <div id="robot-dialog-box" class="subtitles-box hidden">
+        <div class="subtitles-box-header">Hablar con Geeky</div>
+        <div class="subtitles-box-body subtitles-box-bodyall dialog-buttons">
+            <button onclick="startRobotDialogue(1)">Qué hacemos</button>
+            <button onclick="startRobotDialogue(2)">Nosotros</button>
+            <button onclick="startRobotDialogue(3)">Contacto</button>
+        </div>
+    </div>
+    
     <!-- Confirmación para Web -->
-    <div id="confirm-web" class="confirmation-box hidden">
+    <div id="confirm-web" class="confirmation-box subtitles-box hidden">
         <p>¿Desea dirigirse a la página web de Grupo Avanze?</p>
         <button class="confirm-button" onclick="redirectToWeb()">Sí</button>
         <button class="cancel-button" onclick="hideConfirmation('confirm-web')">No</button>
     </div>
     <!-- Confirmación para LinkedIn -->
-    <div id="confirm-linkedin" class="confirmation-box hidden">
+    <div id="confirm-linkedin" class="confirmation-box subtitles-box hidden">
         <p>¿Desea dirigirse a la página de LinkedIn de Grupo Avanze?</p>
         <button class="confirm-button" onclick="redirectToLinkedIn()">Sí</button>
         <button class="cancel-button" onclick="hideConfirmation('confirm-linkedin')">No</button>
