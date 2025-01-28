@@ -30,7 +30,7 @@ p {
 }
 
 .header {
-    background-color: var(--color-neutral-light);
+    background-color: var(--color-primary);
     padding: 10px;
     text-align: center;
 }
@@ -183,25 +183,34 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-neutral-light); /* Fondo oscuro */
+    background-color: var(--color-primary);
     color: var(--color-secondary);
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    padding: 16px; /* Márgenes laterales */
+    box-sizing: border-box;
     z-index: 20; /* Aseguramos que esté sobre todo */
 }
 
 .intro-step {
-    text-align: center;
-    max-width: 90%; /* Limita el ancho para buena legibilidad */
-    margin: 0 auto;
     display: flex;
     flex-direction: column; /* Apila los elementos en columna */
     align-items: center; /* Centra horizontalmente */
     justify-content: space-between; /* Espacia título/párrafo y botón */
-    min-height: 60vh; /* Altura mínima estándar */
-    padding: 20px; /* Espaciado interno */
+    width: 100%; /* Ocupa el ancho completo menos el padding del contenedor */
+    height: 100%; /* Ocupa la altura completa */
+    max-width: 768px; /* Opcional: limitar ancho en pantallas grandes */
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 0 16px 0; /* Espaciado interno */
+}
+
+.header-image {
+    max-width: 80%;
+    height: auto;
+    margin-top: auto;
+    margin-bottom: 24px; /* Espaciado entre imagen y botón */
 }
 
 .intro-step h1, .intro-step p {
@@ -209,36 +218,57 @@ p {
 }
 
 .intro-step h1 {
-    font-size: 24px;
-    margin: 0;
+    width: 100%;
+    font-family: 'Archivo', sans-serif;
+    font-size: 26px;
+    margin: 0 0 16px 0;
+    text-align: left;
+    color: var(--color-secondary);
+}
+
+.p-container {
+    min-height: 264px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .intro-step p {
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    margin: 0;
+    color: var(--color-secondary);
+    margin: 0 0 16px 0;
 }
 
 .marker-image {
-    max-width: 70%; /* Escala responsiva */
+    max-width: 110px; /* Escala responsiva */
     height: auto;
+    margin: 0 0 16px 0;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
+.intro-step button {
+    position: absolute;
+    bottom: 16px; /* Espaciado desde el borde inferior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 24px); /* Ancho ajustado con márgenes */
+    max-width: 400px;
+    padding: 12px 0;
+    background-color: var(--color-secondary);
+    color: var(--color-neutral-light);
+    font-family: 'Archivo', sans-serif;
     font-weight: 700;
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
+    font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: auto; /* Empuja el botón hacia la parte inferior */
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: var(--color-complementary-vivid);
+.intro-step button:hover {
+    background-color: var(--color-complementary-calm);
 }
 
 .hidden {

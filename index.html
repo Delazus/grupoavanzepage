@@ -13,7 +13,7 @@
 <body>
     <!-- Encabezado -->
     <header class="header">
-        <img src="img/logo-avanze-completo-negro.png" alt="Grupo Avanze" class="logo">
+        <img src="imgs/logo-avanze-completo-negro.png" alt="Grupo Avanze" class="logo">
     </header>
 
     <!-- Contenedor AR -->
@@ -60,19 +60,28 @@
     
     <!-- Instrucciones iniciales -->
     <div id="intro-overlay" class="intro-overlay">
+        <!-- Paso 1: Bienvenida -->
         <div id="intro-step-1" class="intro-step">
-            <h1>¡Bienvenido a Grupo Avanze! 🎉</h1>
+            <img class="header-image" src="imgs/PCGeek_Robot_001.png" alt="Encabezado de Bienvenida">
+            <h1>¡Bienvenido a Grupo Avanze!</h1>
+            <div class="p-container"> 
             <p>
-                Aquí experimentarás una demostración interactiva utilizando realidad aumentada. Sigue los pasos a continuación para empezar.
+                ¡Hola! Soy Geeky, tu asistente virtual. Estoy aquí para guiarte y mostrarte todo sobre Grupo Avanze, donde la innovación y la tecnología se unen para ofrecer soluciones a medida.
             </p>
+            </div>    
             <button onclick="nextIntroStep()">Siguiente</button>
         </div>
+
+        <!-- Paso 2: Marcador -->
         <div id="intro-step-2" class="intro-step hidden">
+            <img class="header-image" src="imgs/PCGeek_Robot_002.png" alt="Encabezado de Bienvenida">
             <h1>Encuentra el marcador</h1>
+            <div class="p-container"> 
             <p>
-                Coloca tu cámara frente al marcador impreso que recibiste y espera a que se active la experiencia interactiva.
+                Enfoca tu cámara en el marcador de la tarjeta. Espera un momento mientras activamos la experiencia de realidad aumentada y exploremos juntos nuestras soluciones tecnológicas.
             </p>
-            <img src="images/marcador-referencia.png" alt="Ejemplo de marcador" class="marker-image">
+            <img class="marker-image" src="imgs/qr-pcgeek-AR.png" alt="Ejemplo de marcador">    
+            </div>
             <button onclick="closeIntro()">Comenzar</button>
         </div>
     </div>
