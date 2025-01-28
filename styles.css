@@ -274,3 +274,14 @@ p {
 .hidden {
     display: none;
 }
+
+@media (max-width: 375px) {
+    .header-image {
+        display: none; /* Oculta la imagen del robot */
+    }
+
+    .intro-step {
+        justify-content: flex-start; /* Apila el contenido hacia la parte superior */
+        padding-top: 16px; /* Agrega espacio superior */
+    }
+}
