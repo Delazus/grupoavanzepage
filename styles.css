@@ -215,10 +215,10 @@ p {
 
 .header-isologo {
     position: absolute;
-    top: 16px; /* Espaciado desde el borde inferior */
+    top: 16px;
     left: 24px;
-    width: 48px; /* Ancho ajustado con márgenes */
-    height: 42px;
+    width: 48px;
+    height: auto;
 }
 
 .intro-step h1, .intro-step p {
