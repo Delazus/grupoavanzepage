@@ -110,20 +110,20 @@ p {
     transform: translateX(-50%);
     width: 90%;
     max-width: 400px;
-    /* border-radius: 6px; */
+    border-top-left-radius: 6px; /* Bordes redondeados superiores */
+    border-top-right-radius: 6px;
     overflow: hidden; /* Para mantener los bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
     z-index: 11; /* Más alto que otros elementos */
     /* display: none; /* Oculto por defecto */
-    border:2px solid var(--color-primary); /* Borde de color primario */
 }
 
 /* Pseudo-elemento para la muesca */
 .subtitles-box::after {
     content: '';
     position: absolute;
-    bottom: -2px; /* Alineado con el borde */
-    right: -2px; /* Alineado con el borde */
+    bottom: -1px; /* Alineado con el borde */
+    right: 3px; /* Alineado con el borde */
     width: 24px; /* Tamaño de la muesca */
     height: 24px; /* Tamaño de la muesca */
     background-color: var(--color-primary); /* Mismo color del borde */
@@ -133,12 +133,15 @@ p {
 /* Encabezado del subtítulo */
 .subtitles-box-header {
     background-color: var(--color-primary); /* Color primario */
-    padding: 10px;
+    padding: 8px 10px;
     font-family: 'Archivo', sans-serif;
     font-weight: bold;
     font-size: 22px;
     color: var(--color-secondary); /* Texto del color secundario */
     text-align: left; /* Alineado a la izquierda */
+    border-top-left-radius: 4px; /* Bordes redondeados superiores */
+    border-top-right-radius: 4px;
+    border:2px solid var(--color-primary); /* Borde de color primario */
 }
 
 /* Cuerpo del subtítulo */
@@ -152,7 +155,9 @@ p {
     line-height: 1.5;
     padding: 16px;
     text-align: left;
-    position: relative; /* Necesario para el pseudo-elemento */
+    border-bottom: 1px solid var(--color-primary);
+    border-left: 1px solid var(--color-primary);
+    border-right: 4px solid var(--color-primary);
 }
 
 .hidden {
