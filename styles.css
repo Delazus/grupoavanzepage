@@ -207,7 +207,7 @@ p {
 }
 
 .header-image {
-    max-width: 80%;
+    max-width: 60%;
     height: auto;
     margin-top: auto;
     margin-bottom: 24px; /* Espaciado entre imagen y botón */
