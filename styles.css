@@ -27,12 +27,15 @@ p {
     font-family: 'Source Sans 3', sans-serif;
     font-weight: 400; /* Texto normal */
     line-height: 1.5;
+    margin: 0 auto;
 }
 
 .header {
     background-color: var(--color-primary);
     padding: 10px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 .logo {
@@ -47,7 +50,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000;
+  background: linear-gradient(to bottom, #1C1E21 90%, #2B2E36 90%, #5DB39B 100%);
 }
 
 #ar-video {
@@ -57,7 +60,7 @@ p {
 
 .footer-buttons {
     position: fixed; /* Hace que los botones sean flotantes */
-    bottom: 20px; /* Se posicionan cerca de la parte inferior */
+    bottom: 16px; /* Se posicionan cerca de la parte inferior */
     left: 50%; /* Centramos horizontalmente */
     transform: translateX(-50%); /* Alineación exacta al centro */
     display: flex;
@@ -68,8 +71,8 @@ p {
 }
 
 .circle-button {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
     font-weight: 700;
     border: none;
     border-radius: 50%;
@@ -99,27 +102,57 @@ p {
 }
 
 /* Subtítulos flotantes */
+/* Subtitles Box */
 .subtitles-box {
     position: fixed;
-    bottom: 100px; /* Posición encima de los botones */
+    bottom: 88px; /* Cerca de la parte inferior */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    max-width: 300px;
-    background-color: var(--color-neutral-light);
-    color: var(--color-secondary);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-size: 14px;
-    line-height: 1.5;
-    text-align: center;
-    z-index: 11; /* Más alto que los botones */
-    display: none; /* Inicialmente oculto */
+    max-width: 400px;
+    /* border-radius: 6px; */
+    overflow: hidden; /* Para mantener los bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    z-index: 11; /* Más alto que otros elementos */
+    /* display: none; /* Oculto por defecto */
+    border:2px solid var(--color-primary); /* Borde de color primario */
 }
 
-.subtitles-box p {
-    margin: 0;
+/* Pseudo-elemento para la muesca */
+.subtitles-box::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Alineado con el borde */
+    right: -2px; /* Alineado con el borde */
+    width: 24px; /* Tamaño de la muesca */
+    height: 24px; /* Tamaño de la muesca */
+    background-color: var(--color-primary); /* Mismo color del borde */
+    clip-path: polygon(100% 0, 100% 100%, 0 100%); /* Triángulo para la muesca */
+}
+
+/* Encabezado del subtítulo */
+.subtitles-box-header {
+    background-color: var(--color-primary); /* Color primario */
+    padding: 10px;
+    font-family: 'Archivo', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    color: var(--color-secondary); /* Texto del color secundario */
+    text-align: left; /* Alineado a la izquierda */
+}
+
+/* Cuerpo del subtítulo */
+.subtitles-box-body {
+    background-color: rgba(43, 46, 54, 0.2); /* Fondo semitransparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+    color: var(--color-neutral-light); /* Texto blanco o claro */
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 16px;
+    text-align: left;
+    position: relative; /* Necesario para el pseudo-elemento */
 }
 
 .hidden {
