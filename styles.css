@@ -213,6 +213,14 @@ p {
     margin-bottom: 24px; /* Espaciado entre imagen y botón */
 }
 
+.header-isologo {
+    position: absolute;
+    top: 16px; /* Espaciado desde el borde inferior */
+    left: 24px;
+    width: 48px; /* Ancho ajustado con márgenes */
+    height: 42px;
+}
+
 .intro-step h1, .intro-step p {
     color: var(--color-secondary);
 }
@@ -283,5 +291,6 @@ p {
     .intro-step {
         justify-content: flex-start; /* Apila el contenido hacia la parte superior */
         padding-top: 16px; /* Agrega espacio superior */
+        margin-top: 96px;
     }
 }
