@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
     <script src="js/script.js" defer></script>
     <script src="js/script-footer-buttons.js" defer></script>
     <script src="js/script-ar-load.js" defer></script>
+    <script src="js/script-sprites.js" defer></script>
 </head>
 <body>
     <!-- Encabezado -->
@@ -86,7 +87,9 @@
         <!-- Paso 1: Bienvenida -->
         <div id="intro-step-1" class="intro-step">
             <img class="header-isologo" src="imgs/isologo-avanze-negro.png" alt="Grupo Avanze">
-            <img class="header-image" src="imgs/PCGeek_Robot_001.gif" alt="Encabezado de Bienvenida">
+            <div class="sprite-container">
+                <div class="robot-sprite anim-1"></div>
+            </div>
             <h1>¡Bienvenido a Grupo Avanze!</h1>
             <div class="p-container"> 
             <p>
@@ -99,7 +102,9 @@
         <!-- Paso 2: Marcador -->
         <div id="intro-step-2" class="intro-step hidden">
             <img class="header-isologo" src="imgs/isologo-avanze-negro.png" alt="Grupo Avanze">
-            <img class="header-image" src="imgs/PCGeek_Robot_002.png" alt="Encabezado de Bienvenida">
+            <div class="sprite-container">
+                <div class="robot-sprite anim-2"></div>
+            </div>
             <h1>Encuentra el marcador</h1>
             <div class="p-container"> 
             <p>

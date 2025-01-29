@@ -322,11 +322,29 @@ p {
     padding: 0 0 16px 0; /* Espaciado interno */
 }
 
-.header-image {
-    max-width: 50%;
-    height: auto;
+/* Contenedor del sprite */
+.sprite-container {
+    width: 512px;  /* Tamaño del sprite individual */
+    height: 512px;
     margin-top: auto;
     margin-bottom: 24px; /* Espaciado entre imagen y botón */
+    overflow: hidden;
+}
+
+/* Sprite que mostrará la animación */
+.robot-sprite {
+    width: 2048px; /* Todo el tamaño del sprite sheet */
+    height: 2048px;
+    background-repeat: no-repeat;
+    animation: none; /* Se controlará con JS */
+}
+
+.anim-1 {
+    background-image: url('imgs/Geeky_Idea_SpriteSheet.png'); /* Asegúrate de colocar la ruta correcta */
+}
+
+.anim-2 {
+    background-image: url('imgs/Geeky_Happy_SpriteSheet.png'); /* Asegúrate de colocar la ruta correcta */
 }
 
 .header-isologo {

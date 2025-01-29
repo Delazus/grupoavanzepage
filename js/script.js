@@ -19,10 +19,11 @@ const subtitlesTitles = [ // Títulos dinámicos para subtítulos
 ];
 
 /**
- * Inicializar los cuadros y configuración general al cargar la app.
+ * Inicializar los cuadros y configuración gene ral al cargar la app.
  */
 function initializeApp() {
-    document.getElementById('subtitles-box').style.display = 'none'; // Ocultar subtítulos al inicio
+    var subtitles = document.getElementById('subtitles-box');
+    subtitles.style.display = 'none'; // Ocultar subtítulos al inicio
     document.getElementById('robot-dialog-box').style.display = 'none'; // Ocultar cuadro de diálogo al inicio
     activeBox = null; // Ningún cuadro activo inicialmente
 }
