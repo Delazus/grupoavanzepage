@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/script-footer-buttons.js" defer></script>
+    <script src="js/script-ar-load.js" defer></script>
 </head>
 <body>
     <!-- Encabezado -->
@@ -17,30 +19,28 @@
     </header>
 
     <!-- Contenedor AR -->
-    <div class="ar-container">
+    <div id="ar-container" class="ar-container">
         <!-- Aquí se integrará el canvas de MindAR.js -->
-        <video id="ar-video" autoplay muted playsinline></video>
-        <!-- Puedes agregar aquí la funcionalidad de MindAR.js -->
     </div>
 
     <!-- Barra de botones -->
     <div class="footer-buttons">
-        <button class="circle-button" onclick="talkToRobot()">
+        <button id="btn-robot" class="circle-button" onclick="talkToRobot()">
             <svg class="icon">
                 <use href="imgs/icons.svg#icon-robot"></use>
             </svg>
         </button>
-        <button class="circle-button" onclick="showConfirmation('confirm-web')">
+        <button id="btn-web" class="circle-button" onclick="showConfirmation('confirm-web')">
             <svg class="icon">
                 <use href="imgs/icons.svg#icon-web"></use>
             </svg>
         </button>
-        <button class="circle-button" onclick="showConfirmation('confirm-linkedin')">
+        <button id="btn-linkedin" class="circle-button" onclick="showConfirmation('confirm-linkedin')">
             <svg class="icon">
                 <use href="imgs/icons.svg#icon-linkedin"></use>
             </svg>
         </button>
-        <button class="circle-button" onclick="toggleSubtitles()">
+        <button id="btn-subtitles" class="circle-button" onclick="toggleSubtitles()" >
             <svg class="icon">
                 <use href="imgs/icons.svg#icon-subtitles"></use>
             </svg>
@@ -60,9 +60,11 @@
     <div id="robot-dialog-box" class="subtitles-box hidden">
         <div class="subtitles-box-header">Hablar con Geeky</div>
         <div class="subtitles-box-body subtitles-box-bodyall dialog-buttons">
-            <button onclick="startRobotDialogue(1)">Qué hacemos</button>
-            <button onclick="startRobotDialogue(2)">Nosotros</button>
-            <button onclick="startRobotDialogue(3)">Contacto</button>
+            <div class="navigation-drawer">
+                <button class="first-btn" onclick="startRobotDialogue(1)">Qué hacemos</button>
+                <button onclick="startRobotDialogue(2)">Nosotros</button>
+                <button class="last-btn" onclick="startRobotDialogue(3)">Contacto</button>
+            </div>
         </div>
     </div>
     
