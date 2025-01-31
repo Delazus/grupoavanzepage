@@ -333,10 +333,12 @@ p {
 
 /* Sprite que mostrará la animación */
 .robot-sprite {
-    width: 2048px; /* Todo el tamaño del sprite sheet */
-    height: 2048px;
+    width: 512px; /* Todo el tamaño del sprite sheet */
+    height: 512px;
+    background-size: 2048px 2048px;
+    background-position: 0 0;
     background-repeat: no-repeat;
-    animation: none; /* Se controlará con JS */
+    transform-origin: center;
 }
 
 .anim-1 {
@@ -418,8 +420,32 @@ p {
     display: none;
 }
 
+/* ✅ Ajuste para pantallas medianas (tablets y móviles grandes) */
+@media (max-width: 1024px) {
+    .robot-sprite {
+        transform: scale(0.8); /* Reduce el tamaño un 20% */
+        transform-origin: 50% 80%;
+    }
+}
+
+/* ✅ Ajuste para pantallas más pequeñas (móviles estándar) */
+@media (max-width: 768px) {
+    .robot-sprite {
+        transform: scale(0.6); /* Reduce el tamaño un 40% */
+        transform-origin: 50% 80%;
+    }
+}
+
+/* ✅ Ajuste para pantallas muy pequeñas (iPhone Mini, SE) */
+@media (max-width: 480px) {
+    .robot-sprite {
+        transform: scale(0.4); /* Reduce el tamaño un 60% */
+        transform-origin: 50% 80%;
+    }
+}
+
 @media (max-width: 375px) {
-    .header-image {
+    .sprite-container {
         display: none; /* Oculta la imagen del robot */
     }
 

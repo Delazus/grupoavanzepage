@@ -3,6 +3,7 @@ let activeBox = null; // Para rastrear qué cuadro está activo
 let currentIntroStep = 1; // Paso actual de la introducción inicial
 let currentSubtitleIndex = 0; // Índice del subtítulo actual
 let typingInterval = null; // Referencia al intervalo de tipeo
+let isTyping = false; // Indica si la animación está en curso
 
 const subtitles = [ // Textos dinámicos para los subtítulos
     "Hola, soy Geeky, tu asistente virtual. Bienvenido a Grupo Avanze, donde la innovación y la tecnología se combinan para ofrecerte soluciones a medida. ¡Vamos a explorar juntos!",
@@ -12,20 +13,22 @@ const subtitles = [ // Textos dinámicos para los subtítulos
 ];
 
 const subtitlesTitles = [ // Títulos dinámicos para subtítulos
-    "Introducción", // Solo usado al inicio
+    "Introducción", 
     "Qué hacemos",
     "Nosotros",
     "Contacto"
 ];
 
 /**
- * Inicializar los cuadros y configuración gene ral al cargar la app.
+ * Inicializar la aplicación.
  */
 function initializeApp() {
-    var subtitles = document.getElementById('subtitles-box');
-    subtitles.style.display = 'none'; // Ocultar subtítulos al inicio
-    document.getElementById('robot-dialog-box').style.display = 'none'; // Ocultar cuadro de diálogo al inicio
-    activeBox = null; // Ningún cuadro activo inicialmente
+    document.getElementById('subtitles-box').style.display = 'none';
+    document.getElementById('robot-dialog-box').style.display = 'none';
+    activeBox = null;
+
+    // Agregar evento para completar el texto al hacer clic en los subtítulos
+    document.getElementById('subtitles-box').addEventListener('click', completeTypingEffect);
 }
 
 /**
@@ -45,11 +48,11 @@ function showBox(id) {
     box.style.display = box.style.display === 'block' ? 'none' : 'block';
     activeBox = box.style.display === 'block' ? id : null;
 
-    if (id === 'subtitles-box') startTypingEffect(); // Iniciar animación de texto si es el cuadro de subtítulos
+    if (id === 'subtitles-box') startTypingEffect();
 }
 
 /**
- * Activar animación de subtítulos: escribe el texto letra por letra.
+ * Activar animación de subtítulos letra por letra.
  */
 function startTypingEffect() {
     const titleElement = document.querySelector('.subtitles-box-title');
@@ -60,41 +63,53 @@ function startTypingEffect() {
     const title = subtitlesTitles[currentSubtitleIndex];
     const text = subtitles[currentSubtitleIndex];
 
-    titleElement.textContent = title; // Establecer el título del subtítulo
-    bodyElement.innerHTML = ''; // Limpiar el contenido actual
+    titleElement.textContent = title;
+    bodyElement.innerHTML = ''; 
     let index = 0;
+    isTyping = true; // Indicar que la animación está en curso
 
-    if (typingInterval) clearInterval(typingInterval); // Limpiar cualquier intervalo previo
+    if (typingInterval) clearInterval(typingInterval);
 
-    // Tipear el texto letra por letra
     typingInterval = setInterval(() => {
         bodyElement.innerHTML += text.charAt(index);
         index++;
         if (index === text.length) {
-            clearInterval(typingInterval); // Detener animación al finalizar el texto
+            clearInterval(typingInterval);
+            isTyping = false;
         }
-    }, 50); // Velocidad del tipeo (50ms por letra)
+    }, 50);
+}
+
+/**
+ * Completa el texto inmediatamente al hacer "tap" en el cuadro de subtítulos.
+ */
+function completeTypingEffect() {
+    if (isTyping) {
+        clearInterval(typingInterval);
+        document.querySelector('.subtitles-box-body').innerHTML = subtitles[currentSubtitleIndex];
+        isTyping = false;
+    }
 }
 
 /**
  * Mostrar subtítulos al dar clic en "Comenzar".
  */
 function startSubtitlesOnBegin() {
-    currentSubtitleIndex = 0; // Establecer al primer subtítulo (introducción)
-    document.getElementById('subtitles-box').style.display = 'block'; // Mostrar subtítulos
-    activeBox = 'subtitles-box'; // Definir como cuadro activo
-    startTypingEffect(); // Iniciar animación de texto
+    currentSubtitleIndex = 0;
+    document.getElementById('subtitles-box').style.display = 'block';
+    activeBox = 'subtitles-box';
+    startTypingEffect();
 }
 
 /**
  * Iniciar un diálogo del robot y mostrar el subtítulo correspondiente.
- * @param {number} index - Índice del texto en el arreglo de subtítulos.
+ * @param {number} index - Índice del subtítulo a mostrar.
  */
 function startRobotDialogue(index) {
-    document.getElementById('robot-dialog-box').style.display = 'none'; // Cerrar cuadro de diálogo
-    currentSubtitleIndex = index; // Configurar subtítulo seleccionado
-    startTypingEffect(); // Mostrar texto animado
-    showBox('subtitles-box'); // Mostrar cuadro de subtítulos
+    document.getElementById('robot-dialog-box').style.display = 'none';
+    currentSubtitleIndex = index;
+    startTypingEffect();
+    showBox('subtitles-box');
 }
 
 /**
@@ -129,7 +144,7 @@ function hideConfirmation(id) {
         box.style.display = 'none';
     }
     if (activeBox === id) {
-        activeBox = null; // Restablecer el cuadro activo si coincide
+        activeBox = null;
     }
 }
 
@@ -153,17 +168,17 @@ function redirectToLinkedIn() {
  * Avanzar al siguiente paso de la introducción inicial.
  */
 function nextIntroStep() {
-    document.getElementById(`intro-step-${currentIntroStep}`).classList.add('hidden'); // Oculta el paso actual
-    currentIntroStep++; // Avanza al siguiente paso
-    document.getElementById(`intro-step-${currentIntroStep}`).classList.remove('hidden'); // Muestra el siguiente paso
+    document.getElementById(`intro-step-${currentIntroStep}`).classList.add('hidden');
+    currentIntroStep++;
+    document.getElementById(`intro-step-${currentIntroStep}`).classList.remove('hidden');
 }
 
 /**
  * Cerrar la introducción inicial y mostrar la app.
  */
 function closeIntro() {
-    document.getElementById('intro-overlay').style.display = 'none'; // Ocultar introducción
-    startSubtitlesOnBegin(); // Inicia subtítulos al cerrar introducción
+    document.getElementById('intro-overlay').style.display = 'none';
+    startSubtitlesOnBegin();
 }
 
 // Inicializar la app
