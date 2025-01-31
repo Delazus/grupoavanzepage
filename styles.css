@@ -96,7 +96,7 @@ p {
 /* Efectos al pasar el ratón */
 .footer-buttons .circle-button:hover:not(.active) {
     background-color: var(--color-neutral-medium);
-    transform: scale(1.1);
+    transform: scale(1);
 }
 
 .circle-button:hover {
