@@ -101,7 +101,7 @@ p {
 
 .circle-button:hover {
     transform: scale(1.1);
-    background-color: var(--color-complementary-calm);
+    background-color: var(--color-neutral-medium);
 }
 
 .circle-button .icon {
