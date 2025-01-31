@@ -424,7 +424,7 @@ p {
 @media (max-width: 1024px) {
     .robot-sprite {
         transform: scale(0.8); /* Reduce el tamaño un 20% */
-        transform-origin: 50% 80%;
+        transform-origin: 50% 10%;
     }
 }
 
@@ -432,7 +432,7 @@ p {
 @media (max-width: 768px) {
     .robot-sprite {
         transform: scale(0.6); /* Reduce el tamaño un 40% */
-        transform-origin: 50% 80%;
+        transform-origin: 50% 30%;
     }
 }
 
@@ -440,7 +440,7 @@ p {
 @media (max-width: 480px) {
     .robot-sprite {
         transform: scale(0.4); /* Reduce el tamaño un 60% */
-        transform-origin: 50% 80%;
+        transform-origin: 50% 30%;
     }
 }
 
